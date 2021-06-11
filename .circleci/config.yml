@@ -2,8 +2,23 @@ version: 2.1
 orbs:
   node: circleci/node@3.0.0
   docker: circleci/docker@1.5.0
+  slack: circleci/slack@4.4.2
 
 jobs:
+  run-tests:
+    docker:
+      - image: cimg/node:12.16
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: yarn
+      - run:
+          command: yarn test
+      - slack/notify:
+          channel: $SLACK_DEFAULT_CHANNEL
+          event: fail
+          mentions: '@chanel'
+          template: basic_fail_1
   build-and-push:
     environment:
       DOCKER_IMAGE: nakfl/cicd-anhem1nha
@@ -35,7 +50,10 @@ jobs:
 workflows:
   pipeline:
     jobs:
+      - run-tests
       - build-and-push:
+          requires:
+            - run-tests
           filters:
             branches:
               only:
