@@ -6,7 +6,7 @@ orbs:
 jobs:
   build-and-push:
     environment:
-      DOCKER_IMAGE: nakfl/front-end-live-tutor
+      DOCKER_IMAGE: nakfl/cicd-anhem1nha
       DOCKER_TAG: latest
     executor: docker/docker
     steps:
@@ -39,7 +39,7 @@ workflows:
           filters:
             branches:
               only:
-                - deploy
+                - main
       - deploy:
           requires:
             - build-and-push
