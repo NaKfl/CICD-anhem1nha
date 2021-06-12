@@ -15,7 +15,7 @@ test("title Todo List", () => {
   const dom = render(<TodoList />);
   const title = dom.container.getElementsByClassName("title-todo-list");
   // expect(title[0].textContent).toBe(`What's the Plan for Today?`);
-  expect(title[0].textContent).toBe(`What's the Plan?`);
+  expect(title[0].textContent).toBe(`What's the Plannnn?`);
 });
 
 test("prop Todo List", () => {
@@ -23,6 +23,6 @@ test("prop Todo List", () => {
   const props = todoList.props;
   // expect(props).toMatchObject({});
   expect(props).toMatchObject({
-    todos: [],
+    todos: [1,2,3],
   });
 });

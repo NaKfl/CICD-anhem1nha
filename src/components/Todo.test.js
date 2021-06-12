@@ -81,7 +81,7 @@ test("Todo props", () => {
   );
   const props = todo.props.todos;
   // expect(props.length).toBe(1);
-  expect(props.length).toBe(2);
+  expect(props.length).toBe(3);
 });
 
 test("Todo form define if click edit", () => {

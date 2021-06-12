@@ -28,7 +28,7 @@ test("Todo form content if edit", () => {
   const input = dom.container.getElementsByClassName("todo-input");
   expect(input[0].getAttribute("value")).toBe(editValue.value);
   // expect(button[0].textContent).toBe(`Update`);
-  expect(button[0].textContent).toBe(`Updateee`);
+  expect(button[0].textContent).toBe(`Updateeeee`);
 });
 
 test("Todo form content if not edit", () => {
@@ -37,7 +37,7 @@ test("Todo form content if not edit", () => {
   const input = dom.container.getElementsByClassName("todo-input");
   expect(input[0].getAttribute("value")).toBe("");
   // expect(button[0].textContent).toBe(`Add Todo`);
-  expect(button[0].textContent).toBe(`Add Todoooo`);
+  expect(button[0].textContent).toBe(`Add Todooooo`);
 });
 
 test("Todo form change content input", () => {
@@ -47,7 +47,7 @@ test("Todo form change content input", () => {
     target: { value: "norris" },
   });
   // expect(input[0].getAttribute("value")).toBe("norris");
-  expect(input[0].getAttribute("value")).toBe("norrissss");
+  expect(input[0].getAttribute("value")).toBe("norrisssss");
 });
 
 test("Todo form props", () => {
