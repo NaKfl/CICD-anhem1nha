@@ -27,8 +27,8 @@ test("Todo form content if edit", () => {
   const button = dom.container.getElementsByClassName("todo-button");
   const input = dom.container.getElementsByClassName("todo-input");
   expect(input[0].getAttribute("value")).toBe(editValue.value);
-  // expect(button[0].textContent).toBe(`Update`);
-  expect(button[0].textContent).toBe(`Updateeeee`);
+  expect(button[0].textContent).toBe(`Update`);
+  // expect(button[0].textContent).toBe(`Updateeeee`);
 });
 
 test("Todo form content if not edit", () => {
@@ -36,8 +36,8 @@ test("Todo form content if not edit", () => {
   const button = dom.container.getElementsByClassName("todo-button");
   const input = dom.container.getElementsByClassName("todo-input");
   expect(input[0].getAttribute("value")).toBe("");
-  // expect(button[0].textContent).toBe(`Add Todo`);
-  expect(button[0].textContent).toBe(`Add Todooooo`);
+  expect(button[0].textContent).toBe(`Add Todo`);
+  // expect(button[0].textContent).toBe(`Add Todooooo`);
 });
 
 test("Todo form change content input", () => {
@@ -46,8 +46,8 @@ test("Todo form change content input", () => {
   fireEvent.change(input[0], {
     target: { value: "norris" },
   });
-  // expect(input[0].getAttribute("value")).toBe("norris");
-  expect(input[0].getAttribute("value")).toBe("norrisssss");
+  expect(input[0].getAttribute("value")).toBe("norris");
+  // expect(input[0].getAttribute("value")).toBe("norrisssss");
 });
 
 test("Todo form props", () => {
@@ -55,8 +55,8 @@ test("Todo form props", () => {
   const todoForm = <TodoForm edit={editValue} />;
   const props = todoForm.props.edit;
   expect(props.id).toBe(editValue.id);
-  // expect(props.value).toBe(editValue.value);
-  expect(props.value).toBe(editValue.id);
+  expect(props.value).toBe(editValue.value);
+  // expect(props.value).toBe(editValue.id);
 });
 
 test("Todo form submit", () => {
@@ -66,6 +66,6 @@ test("Todo form submit", () => {
   const dom = render(<TodoForm edit={editValue} onSubmit={handleSubmit} />);
   const button = getByTestId(dom.container, "todo-btn");
   fireEvent.click(button);
-  // expect(handleSubmit).toBeCalled();
-  expect(testFunc).toBeCalled();
+  expect(handleSubmit).toBeCalled();
+  // expect(testFunc).toBeCalled();
 });

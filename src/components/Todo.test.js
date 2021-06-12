@@ -42,8 +42,8 @@ test("Todo content if complete", () => {
   ];
   const dom = render(<Todo todos={todos} />);
   const todoRow = dom.container.getElementsByClassName("complete");
-  // expect(todoRow[0].textContent).toBe(todos[0].text);
-  expect(todoRow[0].textContent).toBe(todos[0].id);
+  expect(todoRow[0].textContent).toBe(todos[0].text);
+  // expect(todoRow[0].textContent).toBe(todos[0].id);
 });
 
 test("Todo content if not complete", () => {
@@ -56,8 +56,8 @@ test("Todo content if not complete", () => {
   ];
   const dom = render(<Todo todos={todos} />);
   const todoRow = dom.container.getElementsByClassName("todo-row");
-  // expect(todoRow[0].textContent).toBe(todos[0].text);
-  expect(todoRow[0].textContent).toBe(todos[0].id);
+  expect(todoRow[0].textContent).toBe(todos[0].text);
+  // expect(todoRow[0].textContent).toBe(todos[0].id);
 });
 
 test("Todo props", () => {
@@ -80,8 +80,8 @@ test("Todo props", () => {
     />
   );
   const props = todo.props.todos;
-  // expect(props.length).toBe(1);
-  expect(props.length).toBe(3);
+  expect(props.length).toBe(1);
+  // expect(props.length).toBe(3);
 });
 
 test("Todo form define if click edit", () => {
@@ -120,8 +120,8 @@ test("Todo click icon remove", () => {
   );
   const deleteIcon = todo.container.getElementsByClassName("delete-icon");
   fireEvent.click(deleteIcon[0]);
-  // expect(removeTodo).toBeCalled();
-  expect(updateTodo).toBeCalled();
+  expect(removeTodo).toBeCalled();
+  // expect(updateTodo).toBeCalled();
 });
 
 test("Todo click row to complete", () => {
@@ -146,6 +146,6 @@ test("Todo click row to complete", () => {
   const rowClickComplete =
     todo.container.getElementsByClassName("click-complete");
   fireEvent.click(rowClickComplete[0]);
-  // expect(completeTodo).toBeCalled();
-  expect(removeTodo).toBeCalled();
+  expect(completeTodo).toBeCalled();
+  // expect(removeTodo).toBeCalled();
 });
