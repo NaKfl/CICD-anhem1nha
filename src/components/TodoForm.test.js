@@ -27,7 +27,8 @@ test("Todo form content if edit", () => {
   const button = dom.container.getElementsByClassName("todo-button");
   const input = dom.container.getElementsByClassName("todo-input");
   expect(input[0].getAttribute("value")).toBe(editValue.value);
-  expect(button[0].textContent).toBe(`Update`);
+  // expect(button[0].textContent).toBe(`Update`);
+  expect(button[0].textContent).toBe(`Updateee`);
 });
 
 test("Todo form content if not edit", () => {
@@ -35,7 +36,8 @@ test("Todo form content if not edit", () => {
   const button = dom.container.getElementsByClassName("todo-button");
   const input = dom.container.getElementsByClassName("todo-input");
   expect(input[0].getAttribute("value")).toBe("");
-  expect(button[0].textContent).toBe(`Add Todo`);
+  // expect(button[0].textContent).toBe(`Add Todo`);
+  expect(button[0].textContent).toBe(`Add Todoooo`);
 });
 
 test("Todo form change content input", () => {
@@ -44,7 +46,8 @@ test("Todo form change content input", () => {
   fireEvent.change(input[0], {
     target: { value: "norris" },
   });
-  expect(input[0].getAttribute("value")).toBe("norris");
+  // expect(input[0].getAttribute("value")).toBe("norris");
+  expect(input[0].getAttribute("value")).toBe("norrissss");
 });
 
 test("Todo form props", () => {
@@ -52,14 +55,17 @@ test("Todo form props", () => {
   const todoForm = <TodoForm edit={editValue} />;
   const props = todoForm.props.edit;
   expect(props.id).toBe(editValue.id);
-  expect(props.value).toBe(editValue.value);
+  // expect(props.value).toBe(editValue.value);
+  expect(props.value).toBe(editValue.id);
 });
 
 test("Todo form submit", () => {
   const editValue = { id: 1, value: "test update" };
   const handleSubmit = jest.fn();
+  const testFunc = jest.fn();
   const dom = render(<TodoForm edit={editValue} onSubmit={handleSubmit} />);
   const button = getByTestId(dom.container, "todo-btn");
   fireEvent.click(button);
-  expect(handleSubmit).toBeCalled();
+  // expect(handleSubmit).toBeCalled();
+  expect(testFunc).toBeCalled();
 });
